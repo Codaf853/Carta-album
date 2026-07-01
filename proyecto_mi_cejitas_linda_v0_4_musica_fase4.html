@@ -496,6 +496,177 @@
       filter: brightness(1.06);
     }
 
+
+
+    /* ==========================
+       REPRODUCTOR DE MÚSICA
+       Este reproductor aparece en la galería y en la fase 4.
+    ========================== */
+
+    .music-player {
+      width: min(100%, 560px);
+      margin: 22px auto 24px;
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background:
+        linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.08)),
+        #fffaf0;
+      box-shadow:
+        0 14px 30px rgba(75, 59, 42, .18),
+        inset 0 0 30px rgba(126, 87, 45, .10);
+      border: 1px solid rgba(92, 74, 56, .14);
+    }
+
+    .music-label {
+      margin: 0 0 5px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: .72rem;
+      font-weight: bold;
+      color: var(--accent-dark);
+    }
+
+    .music-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.05rem;
+      font-weight: bold;
+      line-height: 1.45;
+    }
+
+    .music-artist {
+      margin: 4px 0 14px;
+      color: var(--muted-ink);
+      font-size: .95rem;
+    }
+
+    .music-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .music-button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fffaf0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(75, 59, 42, .22);
+      transition: transform .22s ease, filter .22s ease;
+    }
+
+    .music-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+
+    .music-note {
+      margin: 12px 0 0;
+      color: var(--muted-ink);
+      font-size: .86rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================
+       FASE 4 - COSAS QUE ME GUSTAN
+    ========================== */
+
+    .likes-view {
+      display: none;
+      min-height: 100vh;
+      padding: 80px 20px;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top, rgba(255, 245, 215, .14), transparent 35%),
+        linear-gradient(135deg, #3b2a22, #221915);
+    }
+
+    .likes-view.active {
+      display: flex;
+      animation: fadeIn .8s ease both;
+    }
+
+    .likes-card {
+      width: min(92vw, 820px);
+      padding: 42px 34px;
+      border-radius: 18px;
+      background:
+        linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.04)),
+        var(--paper);
+      text-align: center;
+      box-shadow:
+        0 26px 60px rgba(0,0,0,.38),
+        inset 0 0 70px rgba(126, 87, 45, .14);
+    }
+
+    .likes-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      color: var(--ink);
+    }
+
+    .likes-intro {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      line-height: 1.75;
+      color: var(--muted-ink);
+      font-size: 1.05rem;
+    }
+
+    .likes-list {
+      max-width: 650px;
+      margin: 22px auto 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      display: grid;
+      gap: 12px;
+    }
+
+    .likes-list li {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255, 250, 240, .72);
+      color: var(--muted-ink);
+      line-height: 1.55;
+      box-shadow: inset 0 0 20px rgba(126, 87, 45, .08);
+    }
+
+    .likes-list li::before {
+      content: "❤";
+      margin-right: 9px;
+      color: var(--accent-dark);
+    }
+
+    .secret-message {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      width: min(92vw, 520px);
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: #fffaf0;
+      color: var(--ink);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      text-align: center;
+      z-index: 100;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .secret-message.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     @media (max-width: 640px) {
       .paper {
         padding: 34px 22px;
@@ -509,8 +680,17 @@
         padding: 24px 20px;
       }
 
-      .gallery-card {
+      .gallery-card,
+      .likes-card {
         padding: 32px 18px;
+      }
+
+      .music-controls {
+        gap: 8px;
+      }
+
+      .music-button {
+        padding: 9px 12px;
       }
 
       .polaroid-scene {
@@ -569,6 +749,24 @@
           Da click sobre la foto para voltearla y leer el mensaje oculto.
         </p>
 
+        <div class="music-player">
+          <p class="music-label">Canciones para acompañar esto</p>
+          <p class="music-title js-song-title">Aún no hay canción cargada</p>
+          <p class="music-artist js-song-artist">Agrega tus canciones en la lista songs</p>
+
+          <div class="music-controls">
+            <button class="music-button js-prev-song">⏮ Regresar</button>
+            <button class="music-button js-play-song">▶ Reproducir</button>
+            <button class="music-button js-next-song">Siguiente ⏭</button>
+            <button class="music-button js-random-song">Aleatorio 🔀</button>
+          </div>
+
+          <p class="music-note">
+            Tip: por seguridad del navegador, la música empieza cuando ella toque reproducir.
+          </p>
+        </div>
+
+
         <div class="photo-counter" id="photoCounter">Foto 1 de 1</div>
 
         <div class="polaroid-scene">
@@ -589,9 +787,45 @@
           <button class="gallery-control-button" id="prevPhoto">← Anterior</button>
           <button class="gallery-control-button" id="flipPhoto">Voltear</button>
           <button class="gallery-control-button" id="nextPhoto">Siguiente →</button>
+          <button class="gallery-control-button" id="goToLikes">Lo que me gusta de ti →</button>
         </div>
       </div>
     </section>
+
+    <section class="likes-view" id="likes">
+      <div class="likes-card">
+        <p class="gallery-kicker">Fase 4</p>
+        <h2>Cosas que me gustan de ti ❤️</h2>
+
+        <p class="likes-intro">
+          Sé que repito muchas veces lo que me gusta de ti, aun así va otra vez y lo que falta eh.
+        </p>
+
+        <div class="music-player">
+          <p class="music-label">Mientras lees esto</p>
+          <p class="music-title js-song-title">Aún no hay canción cargada</p>
+          <p class="music-artist js-song-artist">Agrega tus canciones en la lista songs</p>
+
+          <div class="music-controls">
+            <button class="music-button js-prev-song">⏮ Regresar</button>
+            <button class="music-button js-play-song">▶ Reproducir</button>
+            <button class="music-button js-next-song">Siguiente ⏭</button>
+            <button class="music-button js-random-song">Aleatorio 🔀</button>
+          </div>
+        </div>
+
+        <ul class="likes-list" id="likesList"></ul>
+
+        <div class="gallery-controls">
+          <button class="gallery-control-button" id="backToGallery">← Volver a las fotos</button>
+        </div>
+      </div>
+    </section>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+    <div class="secret-message" id="secretMessage">
+      Sabía que algún día lo encontrarías, Naomi me encanta todo de ti y nunca lo olvides ❤️
+    </div>
   </main>
 
   <script>
@@ -611,9 +845,12 @@ paciencia y un poquito de código.
     const paper = document.querySelector(".paper");
     const intro = document.getElementById("intro");
     const gallery = document.getElementById("gallery");
+    const likes = document.getElementById("likes");
     const hiddenLetter = document.getElementById("hiddenLetter");
     const letterText = document.getElementById("letterText");
     const nextButton = document.getElementById("nextButton");
+    const audioPlayer = document.getElementById("audioPlayer");
+    const secretMessage = document.getElementById("secretMessage");
 
     const msgs = [
       "Uy casi 😝",
@@ -749,9 +986,9 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     ========================================================== */
     const photos = [
       {
-        image: "https://via.placeholder.com/800x1000/f6edd8/4b3b2a?text=Foto+1",
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Fotos/WhatsApp%20Image%202026-06-29%20at%207.57.56%20AM.jpeg",
         caption: "Click para voltear",
-        message: "Aquí va el mensaje oculto de esta foto.\n\nEjemplo: me acuerdo de esta foto, me la mandaste cuando estabas haciendo tu proyecto y te estaba ayudando jaja."
+        message: "Me acuerdo de esta foto, me la mandaste cuando estabas haciendo tu tarea de algebra y te estaba ayudando jaja.\n\nNo importa que sea, yo puedo aprender cualquier cosa por ti"
       },
       {
         image: "https://via.placeholder.com/800x1000/ead8b8/4b3b2a?text=Foto+2",
@@ -765,6 +1002,46 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
       }
     ];
 
+
+
+    /* ==========================================================
+       REPRODUCTOR - LISTA DE CANCIONES
+
+       Aquí vas a agregar las canciones.
+       Funciona igual que las fotos: copia y pega otro bloque dentro de songs.
+
+       IMPORTANTE:
+       - El link debe ser directo a un archivo .mp3, .ogg o .wav.
+       - Si usas GitHub, conviene usar raw.githubusercontent.com.
+       - El navegador no deja iniciar música sola: ella debe tocar "Reproducir".
+
+       Ejemplo:
+       {
+         title: "Nombre de la canción",
+         artist: "Artista o recuerdo",
+         src: "https://raw.githubusercontent.com/USUARIO/REPO/main/Canciones/cancion.mp3"
+       },
+    ========================================================== */
+    const songs = [
+      {
+        title: "Oscar Maydon x Fuerza Regida - Tu Boda",
+        artist: "(Tu mero mole jiji)",
+        src: ""
+      }
+    ];
+
+    /* ==========================================================
+       FASE 4 - LISTA DE COSAS QUE ME GUSTAN DE ELLA
+
+       Para agregar más, solo pon otra frase entre comillas y coma.
+    ========================================================== */
+    const thingsILike = [
+      "Tu forma de reírte, porque siento que haces más bonito cualquier momento.",
+      "Que tienes una manera muy tuya de contar las cosas y hacerlas especiales.",
+      "Tus cejitas, obvio, porque ya son parte importante de esta historia jaja.",
+      "Que aunque a veces no lo diga perfecto, me gusta mucho poder compartir cosas contigo.",
+      "La forma en la que haces que algo sencillo se sienta como un recuerdo bonito."
+    ];
     const polaroidCard = document.getElementById("polaroidCard");
     const photoImage = document.getElementById("photoImage");
     const photoCaption = document.getElementById("photoCaption");
@@ -773,6 +1050,146 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     const prevPhoto = document.getElementById("prevPhoto");
     const nextPhoto = document.getElementById("nextPhoto");
     const flipPhoto = document.getElementById("flipPhoto");
+    const goToLikes = document.getElementById("goToLikes");
+    const backToGallery = document.getElementById("backToGallery");
+    const likesList = document.getElementById("likesList");
+    const songTitleElements = document.querySelectorAll(".js-song-title");
+    const songArtistElements = document.querySelectorAll(".js-song-artist");
+    const playSongButtons = document.querySelectorAll(".js-play-song");
+    const prevSongButtons = document.querySelectorAll(".js-prev-song");
+    const nextSongButtons = document.querySelectorAll(".js-next-song");
+    const randomSongButtons = document.querySelectorAll(".js-random-song");
+
+
+    let currentSongIndex = 0;
+    let isMusicPlaying = false;
+
+    function getAvailableSongs() {
+      return songs.filter(song => song.src && song.src.trim() !== "");
+    }
+
+    function renderSong() {
+      const availableSongs = getAvailableSongs();
+
+      if (availableSongs.length === 0) {
+        songTitleElements.forEach(element => {
+          element.textContent = "Aquí irá la canción que agregues";
+        });
+        songArtistElements.forEach(element => {
+          element.textContent = "Pon un link directo en la lista songs";
+        });
+        playSongButtons.forEach(button => {
+          button.textContent = "▶ Reproducir";
+        });
+        return;
+      }
+
+      if (currentSongIndex >= availableSongs.length) {
+        currentSongIndex = 0;
+      }
+
+      const currentSong = availableSongs[currentSongIndex];
+      audioPlayer.src = currentSong.src;
+
+      songTitleElements.forEach(element => {
+        element.textContent = currentSong.title;
+      });
+      songArtistElements.forEach(element => {
+        element.textContent = currentSong.artist;
+      });
+    }
+
+    function updatePlayButtons() {
+      playSongButtons.forEach(button => {
+        button.textContent = isMusicPlaying ? "⏸ Pausa" : "▶ Reproducir";
+      });
+    }
+
+    function playCurrentSong() {
+      const availableSongs = getAvailableSongs();
+      if (availableSongs.length === 0) return;
+
+      if (!audioPlayer.src) {
+        renderSong();
+      }
+
+      audioPlayer.play()
+        .then(() => {
+          isMusicPlaying = true;
+          updatePlayButtons();
+        })
+        .catch(() => {
+          isMusicPlaying = false;
+          updatePlayButtons();
+        });
+    }
+
+    function toggleMusic() {
+      const availableSongs = getAvailableSongs();
+      if (availableSongs.length === 0) return;
+
+      if (audioPlayer.paused) {
+        playCurrentSong();
+      } else {
+        audioPlayer.pause();
+        isMusicPlaying = false;
+        updatePlayButtons();
+      }
+    }
+
+    function showNextSong() {
+      const availableSongs = getAvailableSongs();
+      if (availableSongs.length === 0) return;
+
+      currentSongIndex++;
+      if (currentSongIndex >= availableSongs.length) {
+        currentSongIndex = 0;
+      }
+
+      renderSong();
+      if (isMusicPlaying) playCurrentSong();
+    }
+
+    function showPreviousSong() {
+      const availableSongs = getAvailableSongs();
+      if (availableSongs.length === 0) return;
+
+      currentSongIndex--;
+      if (currentSongIndex < 0) {
+        currentSongIndex = availableSongs.length - 1;
+      }
+
+      renderSong();
+      if (isMusicPlaying) playCurrentSong();
+    }
+
+    function showRandomSong() {
+      const availableSongs = getAvailableSongs();
+      if (availableSongs.length === 0) return;
+
+      if (availableSongs.length === 1) {
+        currentSongIndex = 0;
+      } else {
+        let randomIndex = currentSongIndex;
+        while (randomIndex === currentSongIndex) {
+          randomIndex = Math.floor(Math.random() * availableSongs.length);
+        }
+        currentSongIndex = randomIndex;
+      }
+
+      renderSong();
+      if (isMusicPlaying) playCurrentSong();
+    }
+
+    function renderLikesList() {
+      likesList.innerHTML = "";
+
+      thingsILike.forEach(thing => {
+        const item = document.createElement("li");
+        item.textContent = thing;
+        likesList.appendChild(item);
+      });
+    }
 
     let currentPhotoIndex = 0;
 
@@ -815,7 +1232,52 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     nextPhoto.addEventListener("click", showNextPhoto);
     prevPhoto.addEventListener("click", showPreviousPhoto);
 
+    playSongButtons.forEach(button => {
+      button.addEventListener("click", toggleMusic);
+    });
+
+    nextSongButtons.forEach(button => {
+      button.addEventListener("click", showNextSong);
+    });
+
+    prevSongButtons.forEach(button => {
+      button.addEventListener("click", showPreviousSong);
+    });
+
+    randomSongButtons.forEach(button => {
+      button.addEventListener("click", showRandomSong);
+    });
+
+    audioPlayer.addEventListener("ended", showNextSong);
+
+    goToLikes.addEventListener("click", () => {
+      gallery.classList.remove("active");
+      likes.classList.add("active");
+      renderLikesList();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    backToGallery.addEventListener("click", () => {
+      likes.classList.remove("active");
+      gallery.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.addEventListener("keydown", event => {
+      const key = event.key.toLowerCase();
+
+      if (event.shiftKey && key === "g") {
+        secretMessage.classList.add("show");
+
+        setTimeout(() => {
+          secretMessage.classList.remove("show");
+        }, 5200);
+      }
+    });
+
     renderPhoto();
+    renderSong();
+    renderLikesList();
 
     nextButton.addEventListener("click", () => {
       intro.classList.add("hidden");
