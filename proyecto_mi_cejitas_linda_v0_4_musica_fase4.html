@@ -472,6 +472,10 @@
       transform: rotateY(180deg);
     }
 
+    .polaroid.no-transition {
+      transition: none;
+    }
+
     .polaroid-face {
       position: absolute;
       inset: 0;
@@ -2033,7 +2037,11 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     function renderPhoto() {
       const currentPhoto = photos[currentPhotoIndex];
 
+      polaroidCard.classList.add("no-transition");
       polaroidCard.classList.remove("flipped");
+      void polaroidCard.offsetWidth;
+      polaroidCard.classList.remove("no-transition");
+
       photoImage.src = currentPhoto.image;
       photoCaption.textContent = currentPhoto.caption;
       photoMessage.textContent = currentPhoto.message;
