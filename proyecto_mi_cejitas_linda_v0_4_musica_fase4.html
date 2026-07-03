@@ -1036,24 +1036,85 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
        Tip:
        Si usas GitHub, intenta usar enlaces tipo raw.githubusercontent.com.
     ========================================================== */
-    const photos = [
-      {
-        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Fotos/WhatsApp%20Image%202026-06-29%20at%207.57.56%20AM.jpeg",
+    const photos = []
+    for (let i = 1; i <= 5; i++) {
+      photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20${i}.jpeg`,
         caption: "Click para voltear",
-        message: "Me acuerdo de esta foto, me la mandaste cuando estabas haciendo tu tarea de algebra y te estaba ayudando jaja.\n\nNo importa que sea, yo puedo aprender cualquier cosa por ti"
-      },
-      {
-        image: "https://via.placeholder.com/800x1000/ead8b8/4b3b2a?text=Foto+2",
-        caption: "Otro recuerdo bonito",
-        message: "Aquí va otro mensaje oculto.\n\nPuedes escribir algo corto, algo gracioso o algo que solo ustedes entiendan."
-      },
-      {
-        image: "https://via.placeholder.com/800x1000/d7b98e/4b3b2a?text=Foto+3",
-        caption: "Una más para guardar",
-        message: "Puedes agregar todas las fotos que quieras en esta lista.\n\nLa galería se actualiza sola."
-      }
-    ];
+        message: `.`
+      });
+    }
 
+    photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20$6.jpeg`,
+        caption: "Click para voltear",
+        message: `Aquí me habias mostrado que hizo su primera caca jajaja`
+    });
+    photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20$7.jpeg`,
+        caption: "Click para voltear",
+        message: `El diu JAJA`
+    });
+    photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20$8.jpeg`,
+        caption: "Click para voltear",
+        message: `Aquí estaba hacinedo una pose coqueta jaja (yo)`
+    });
+    for (let i = 9; i <= 10; i++) {
+      photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20${i}.jpeg`,
+        caption: "Click para voltear",
+        message: `.`
+      });
+    }
+
+    const photos2 = [
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.1.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.2.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.3.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.4.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.5.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.6.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+      {
+        image: "https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%2020.7.jpeg",
+        caption: "Click para voltear",
+        message: ""
+      },
+    ]
+
+    photos.push(...photos2);
+
+    for (let i = 21; i <= 186; i++) {
+      photos.push({
+        image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20${i}.jpeg`,
+        caption: "Click para voltear",
+        message: `Aquí escribiré algo especial sobre la foto ${i}.`
+      });
+    }
 
 
     /* ==========================================================
