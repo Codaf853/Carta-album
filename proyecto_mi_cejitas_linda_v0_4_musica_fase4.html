@@ -2034,6 +2034,13 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
 
     let currentPhotoIndex = 0;
 
+    function preloadPhotos() {
+      photos.forEach(photo => {
+        const img = new Image();
+        img.src = photo.image;
+      });
+    }
+
     function renderPhoto() {
       const currentPhoto = photos[currentPhotoIndex];
 
@@ -2123,6 +2130,7 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     renderPhoto();
     renderSong();
     renderLikesList();
+    preloadPhotos();
 
     nextButton.addEventListener("click", () => {
       intro.classList.add("hidden");
