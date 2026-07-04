@@ -7,14 +7,14 @@
   <title>Proyecto Cejitas v0.3</title>
   <style>
     :root {
-      --paper: #fffaf7;
-      --ink: #6b3550;
-      --muted-ink: #8a5468;
-      --envelope: #f8cfe0;
-      --envelope-dark: #f0a8c8;
-      --accent: #e0709f;
-      --accent-dark: #c14f80;
-      --white-soft: #fff6f9;
+      --paper: #f6edd8;
+      --ink: #4b3b2a;
+      --muted-ink: #5c4a38;
+      --envelope: #d7b98e;
+      --envelope-dark: #caa56d;
+      --accent: #8f5f3d;
+      --accent-dark: #68452e;
+      --white-soft: #fffaf0;
     }
 
     * {
@@ -26,8 +26,8 @@
       min-height: 100vh;
       font-family: Georgia, "Times New Roman", serif;
       background:
-        radial-gradient(circle at top, rgba(255, 255, 255, .4), transparent 35%),
-        linear-gradient(135deg, #ffd3e6, #ffeef6);
+        radial-gradient(circle at top, rgba(255, 235, 190, .18), transparent 35%),
+        linear-gradient(135deg, #5b3a29, #2f241d);
       color: var(--ink);
       overflow-x: hidden;
     }
@@ -54,12 +54,12 @@
       text-align: center;
       background:
         linear-gradient(rgba(255, 255, 255, .25), rgba(255, 255, 255, .05)),
-        radial-gradient(circle at 20% 20%, rgba(214, 100, 150, .07), transparent 28%),
-        radial-gradient(circle at 80% 70%, rgba(214, 100, 150, .08), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(120, 70, 30, .07), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(120, 70, 30, .08), transparent 30%),
         var(--paper);
       box-shadow:
         0 26px 70px rgba(0, 0, 0, .50),
-        inset 0 0 80px rgba(214, 100, 150, .16);
+        inset 0 0 80px rgba(126, 87, 45, .16);
       transition: transform .2s ease;
     }
 
@@ -67,7 +67,7 @@
       content: "";
       position: absolute;
       inset: 12px;
-      border: 1px solid rgba(196, 90, 140, .18);
+      border: 1px solid rgba(92, 74, 56, .18);
       border-radius: 12px;
       pointer-events: none;
     }
@@ -77,8 +77,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(90deg, rgba(196, 90, 140, .025) 1px, transparent 1px),
-        linear-gradient(rgba(196, 90, 140, .025) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(80, 50, 20, .025) 1px, transparent 1px),
+        linear-gradient(rgba(80, 50, 20, .025) 1px, transparent 1px);
       background-size: 18px 18px;
       opacity: .45;
       pointer-events: none;
@@ -135,7 +135,7 @@
         visibility .55s ease;
       box-shadow:
         0 12px 22px rgba(0, 0, 0, .23),
-        inset 0 -18px 30px rgba(214, 100, 150, .16);
+        inset 0 -18px 30px rgba(126, 84, 40, .16);
       z-index: 5;
     }
 
@@ -161,7 +161,7 @@
       inset: 0;
       background:
         linear-gradient(145deg, transparent 49%, rgba(255, 255, 255, .20) 50%, transparent 52%),
-        linear-gradient(35deg, transparent 49%, rgba(196, 90, 140, .14) 50%, transparent 52%);
+        linear-gradient(35deg, transparent 49%, rgba(83, 53, 26, .14) 50%, transparent 52%);
       border-radius: 8px;
       pointer-events: none;
     }
@@ -214,7 +214,7 @@
         var(--white-soft);
       box-shadow:
         0 18px 38px rgba(0, 0, 0, .20),
-        inset 0 0 45px rgba(214, 100, 150, .12);
+        inset 0 0 45px rgba(126, 87, 45, .12);
       z-index: 8;
       pointer-events: none;
       display: flex;
@@ -288,12 +288,12 @@
     }
 
     #letterText::-webkit-scrollbar-thumb {
-      background: rgba(196, 90, 140, .28);
+      background: rgba(92, 74, 56, .28);
       border-radius: 4px;
     }
 
     #letterText::-webkit-scrollbar-thumb:hover {
-      background: rgba(196, 90, 140, .5);
+      background: rgba(92, 74, 56, .5);
     }
 
     .cursor {
@@ -331,7 +331,7 @@
       font-weight: bold;
       font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 10px 24px rgba(196, 90, 140, .28);
+      box-shadow: 0 10px 24px rgba(75, 59, 42, .28);
       transition: opacity .5s ease, transform .5s ease, filter .25s ease;
       pointer-events: none;
     }
@@ -351,11 +351,11 @@
 
       0%,
       100% {
-        box-shadow: 0 10px 24px rgba(196, 90, 140, .28);
+        box-shadow: 0 10px 24px rgba(75, 59, 42, .28);
       }
 
       50% {
-        box-shadow: 0 14px 34px rgba(196, 90, 140, .45);
+        box-shadow: 0 14px 34px rgba(75, 59, 42, .45);
       }
     }
 
@@ -366,8 +366,8 @@
       align-items: center;
       justify-content: center;
       background:
-        radial-gradient(circle at top, rgba(255, 255, 255, .35), transparent 35%),
-        linear-gradient(135deg, #ffd3e6, #ffeef6);
+        radial-gradient(circle at top, rgba(255, 245, 215, .14), transparent 35%),
+        linear-gradient(135deg, #3b2a22, #221915);
     }
 
     .gallery-view.active {
@@ -421,7 +421,7 @@
       text-align: center;
       box-shadow:
         0 26px 60px rgba(0, 0, 0, .38),
-        inset 0 0 70px rgba(214, 100, 150, .14);
+        inset 0 0 70px rgba(126, 87, 45, .14);
     }
 
     .gallery-kicker {
@@ -484,7 +484,7 @@
       background: #fffaf0;
       box-shadow:
         0 18px 38px rgba(0, 0, 0, .26),
-        inset 0 0 30px rgba(214, 100, 150, .10);
+        inset 0 0 30px rgba(126, 87, 45, .10);
       padding: 16px 16px 28px;
     }
 
@@ -493,7 +493,7 @@
       height: 385px;
       object-fit: cover;
       border-radius: 6px;
-      background: #f7d9e6;
+      background: #ead8b8;
       display: block;
     }
 
@@ -544,7 +544,7 @@
       font-family: Georgia, "Times New Roman", serif;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 9px 20px rgba(196, 90, 140, .25);
+      box-shadow: 0 9px 20px rgba(75, 59, 42, .25);
       transition: transform .22s ease, filter .22s ease;
     }
 
@@ -569,9 +569,9 @@
         linear-gradient(rgba(255, 255, 255, .28), rgba(255, 255, 255, .08)),
         #fffaf0;
       box-shadow:
-        0 14px 30px rgba(196, 90, 140, .18),
-        inset 0 0 30px rgba(214, 100, 150, .10);
-      border: 1px solid rgba(196, 90, 140, .14);
+        0 14px 30px rgba(75, 59, 42, .18),
+        inset 0 0 30px rgba(126, 87, 45, .10);
+      border: 1px solid rgba(92, 74, 56, .14);
     }
 
     .music-label {
@@ -613,7 +613,7 @@
       font-family: Georgia, "Times New Roman", serif;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(196, 90, 140, .22);
+      box-shadow: 0 8px 18px rgba(75, 59, 42, .22);
       transition: transform .22s ease, filter .22s ease;
     }
 
@@ -640,8 +640,8 @@
       align-items: center;
       justify-content: center;
       background:
-        radial-gradient(circle at top, rgba(255, 255, 255, .35), transparent 35%),
-        linear-gradient(135deg, #ffd3e6, #ffeef6);
+        radial-gradient(circle at top, rgba(255, 245, 215, .14), transparent 35%),
+        linear-gradient(135deg, #3b2a22, #221915);
     }
 
     .likes-view.active {
@@ -659,7 +659,7 @@
       text-align: center;
       box-shadow:
         0 26px 60px rgba(0, 0, 0, .38),
-        inset 0 0 70px rgba(214, 100, 150, .14);
+        inset 0 0 70px rgba(126, 87, 45, .14);
     }
 
     .likes-card h2 {
@@ -692,7 +692,7 @@
       background: rgba(255, 250, 240, .72);
       color: var(--muted-ink);
       line-height: 1.55;
-      box-shadow: inset 0 0 20px rgba(214, 100, 150, .08);
+      box-shadow: inset 0 0 20px rgba(126, 87, 45, .08);
     }
 
     .likes-list li::before {
