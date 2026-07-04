@@ -701,6 +701,20 @@
       color: var(--accent-dark);
     }
 
+    .likes-list li.likes-heading {
+      background: none;
+      box-shadow: none;
+      padding: 10px 4px 0;
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: var(--accent-dark);
+    }
+
+    .likes-list li.likes-heading::before {
+      content: "";
+      margin-right: 0;
+    }
+
     .secret-message {
       position: fixed;
       left: 50%;
@@ -919,11 +933,16 @@ paciencia y un poquito de código.
     let isOpen = false;
     let typeTimer = null;
 
-    const letterContent = `Todavía estoy escribiendo esta parte, pero quería que desde ahorita se sintiera como abrir una carta de verdad.
+    const letterContent = `Mi cejitas, ya más de un año que te conozco y otro cumpleaños que celebras estando conmigo. Agradezco por haberte conocido y haber pedido ese Discord jaja, ese día, esa hora, ese minuto y ese segundo que le di "unirme al mundo" es una de las casualidades más lindas que tuve.
 
-Esta será la parte donde irá lo que quiero decirte con calma, sin prisa y con mucho cariño.
+Muchas felicidades por tu cumpleaños, espero te la pases bien, sigue siendo la mejor, la más inteligente, la más responsable y la más divertida mi cejitas, sigue así. Sigamos viendo más pelis, escuchando más música, seguir siendo tu espía jaja, háblame de tus hijos, de tus logros, de tus metas, sigamos viviendo más anécdotas y sigue contandome más tuyas que yo te contaré sí o sí más mías jaja.
 
-Por ahora, solo quería que vieras que esto apenas está empezando.`;
+Así que feliz cumpleaños, disfruta tu día y pásatela bien con las personas que amas.
+
+
+P.D. Recuerda siempre pero siempre que me encantas mi cejitas, me gustas muchooooo muchooooooooooo y te quiero sinceramente.
+
+Genariooooo`;
 
     function escapeEnvelope() {
       if (tries < 3 && !isOpen) {
@@ -1005,14 +1024,17 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
       let index = 0;
       element.innerHTML = "";
 
+      const textNode = document.createTextNode("");
+      element.appendChild(textNode);
+
       const cursor = document.createElement("span");
       cursor.classList.add("cursor");
       cursor.textContent = "|";
+      element.appendChild(cursor);
 
       function writeCharacter() {
         if (index < text.length) {
-          element.textContent += text.charAt(index);
-          element.appendChild(cursor);
+          textNode.textContent += text.charAt(index);
           index++;
           typeTimer = setTimeout(writeCharacter, speed);
         } else {
@@ -1717,7 +1739,7 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
     photos.push({
         image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20185.jpeg`,
         caption: "Click para voltear",
-        message: `Este es un easter egg el aslan de la suerte.`
+        message: `Este es un easter egg el aslan de la suerte. Siempre serás la mejor, la mas guapa, la más linda y la más inteligente, mi mero mole jiji. Y que nadie te haga pensar lo contrario eh.`
     });
     photos.push({
         image: `https://raw.githubusercontent.com/Codaf853/Carta-album/master/Photos/Photo%20186.jpeg`,
@@ -1877,11 +1899,35 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
        Para agregar más, solo pon otra frase entre comillas y coma.
     ========================================================== */
     const thingsILike = [
-      "Tu forma de reírte, porque siento que haces más bonito cualquier momento.",
-      "Que tienes una manera muy tuya de contar las cosas y hacerlas especiales.",
-      "Tus cejitas, obvio, porque ya son parte importante de esta historia jaja.",
-      "Que aunque a veces no lo diga perfecto, me gusta mucho poder compartir cosas contigo.",
-      "La forma en la que haces que algo sencillo se sienta como un recuerdo bonito."
+      { heading: "Me gustan..." },
+      "Tus ojos",
+      "Tus cejitas",
+      "Tu cabello",
+      "Tu linda voz",
+      "Tu acento (eiii)",
+      "Tus uñitas",
+      "Tu humor",
+      "Tus referencias",
+      "Tus sueños",
+      "Tus metas",
+      "Tu letra Jiji",
+      { heading: "Me encanta..." },
+      "Tus gustos culinarios",
+      "Tu inteligencia",
+      "Tu risa",
+      "Tus gustos musicales",
+      "Tu forma de pensar",
+      "Tu forma de ser",
+      "Tus outfits",
+      "Tus chistes",
+      "Tus anécdotas",
+      "Tus puntos de vista",
+      "Tus hijos",
+      "Tu familia",
+      "Tus amistades",
+      "Tus historias",
+      "Tus contextos",
+      { heading: "En fin me interesas, me gustas, me encantas tú" }
     ];
     const polaroidCard = document.getElementById("polaroidCard");
     const photoImage = document.getElementById("photoImage");
@@ -2027,7 +2073,14 @@ Por ahora, solo quería que vieras que esto apenas está empezando.`;
 
       thingsILike.forEach(thing => {
         const item = document.createElement("li");
-        item.textContent = thing;
+
+        if (typeof thing === "object" && thing.heading) {
+          item.textContent = thing.heading;
+          item.classList.add("likes-heading");
+        } else {
+          item.textContent = thing;
+        }
+
         likesList.appendChild(item);
       });
     }
